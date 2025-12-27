@@ -43,7 +43,7 @@ const HeaderItem: React.FC<HeaderItemProps> = ({ text, href = '#' }) => {
         >
           <div className="relative">
             {/* Original text layer */}
-            <div className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tighter leading-none">
+            <div className="text-base xs:text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tighter leading-none whitespace-nowrap">
               {chars.map((char, charIndex) => {
                 const distance = Math.abs(charIndex - centerIndex);
                 const staggerDelay = distance * 0.02;
@@ -65,7 +65,7 @@ const HeaderItem: React.FC<HeaderItemProps> = ({ text, href = '#' }) => {
               })}
             </div>
             {/* Sliding in text layer from below */}
-            <div className="absolute top-0 left-0 text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tighter leading-none">
+            <div className="absolute top-0 left-0 text-base xs:text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tighter leading-none whitespace-nowrap">
               {chars.map((char, charIndex) => {
                 const distance = Math.abs(charIndex - centerIndex);
                 const staggerDelay = distance * 0.02;
@@ -104,7 +104,7 @@ const HeaderItem: React.FC<HeaderItemProps> = ({ text, href = '#' }) => {
       >
         <div className="relative">
           {/* Original text layer */}
-          <div className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tighter leading-none">
+          <div className="text-base xs:text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tighter leading-none whitespace-nowrap">
             {chars.map((char, charIndex) => {
               const distance = Math.abs(charIndex - centerIndex);
               const staggerDelay = distance * 0.02;
@@ -126,7 +126,7 @@ const HeaderItem: React.FC<HeaderItemProps> = ({ text, href = '#' }) => {
             })}
           </div>
           {/* Sliding in text layer from below */}
-          <div className="absolute top-0 left-0 text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tighter leading-none">
+          <div className="absolute top-0 left-0 text-base xs:text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tighter leading-none whitespace-nowrap">
             {chars.map((char, charIndex) => {
               const distance = Math.abs(charIndex - centerIndex);
               const staggerDelay = distance * 0.02;
@@ -162,10 +162,15 @@ export const Header = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-6 md:py-8 container flex items-center justify-between">
-      <div className="flex items-center gap-8 md:gap-12">
+    <nav className="fixed top-0 left-0 w-full z-50 px-2 sm:px-4 md:px-12 py-3 sm:py-4 md:py-8 bg-black/90 backdrop-blur-md">
+      <div className="flex flex-nowrap items-center gap-3 sm:gap-6 md:gap-12 overflow-x-auto scrollbar-none w-full max-w-full">
         {menuItems.map((item) => (
-          <HeaderItem key={item.text} text={item.text} href={item.href} />
+          <div
+            key={item.text}
+            className="min-w-[80px] sm:min-w-[100px] md:min-w-[120px] flex-shrink-0 text-center"
+          >
+            <HeaderItem text={item.text} href={item.href} />
+          </div>
         ))}
       </div>
     </nav>
