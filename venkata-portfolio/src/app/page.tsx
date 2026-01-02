@@ -17,7 +17,7 @@ const SmoothScroll = dynamic(
 export default function Home() {
   const items = [
     {
-      text: "Token Launchpad",
+      text: "Token Minter",
       link: "https://create-token-erya.vercel.app",
       image: "/token-launchpad.png",
       description: (
